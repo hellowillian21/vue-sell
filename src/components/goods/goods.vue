@@ -35,11 +35,13 @@
                 </li>
             </ul>
         </div>
+        <shopcart :delivery-price="seller.deliveryPrice" :min-price="seller.minPrice"></shopcart>
     </div>
 </template>
 
 <script>
     import BScroll from 'better-scroll'
+    import shopcart from '../../components/shopcart/shopcart'
 
     const ERR_OK = 0
     export default {
@@ -83,7 +85,7 @@
         methods: {
             //点击左侧菜单
             selectMenu(index, event) {
-                console.log(event)
+                // console.log(event)
                 if (!event._constructed) {
                     return;
                 }
@@ -115,7 +117,7 @@
 
             _calculateHeight() {
                 let foodList = this.$refs.foodList
-                console.log(foodList)
+                // console.log(foodList)
                 let height = 0;
                 this.listHeight.push(height);
                 for (let i = 0; i < foodList.length; i++) {
@@ -124,6 +126,9 @@
                     this.listHeight.push(height);
                 }
             }
+        },
+        components: {
+            shopcart
         }
     }
 </script>
